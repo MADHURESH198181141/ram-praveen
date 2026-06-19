@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Tamil:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Vibrant Light Theme */
+    --background: 240 20% 98%;
+    --foreground: 240 10% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Deep Indigo / Violet base */
+    --primary: 250 84% 54%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Soft cool secondary */
+    --secondary: 240 10% 93%;
+    --secondary-foreground: 250 84% 20%;
+
+    --muted: 240 10% 93%;
+    --muted-foreground: 240 10% 40%;
+
+    /* Vibrant Teal/Emerald Accent (Wow factor) */
+    --accent: 172 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status colors */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 96% 53%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --pending: 25 95% 53%;
+    --pending-foreground: 0 0% 100%;
+
+    --border: 240 10% 85%;
+    --input: 240 10% 85%;
+    --ring: 250 84% 54%;
+
+    --radius: 0.75rem; /* Larger, smoother radius */
+
+    /* Custom tokens for POS */
+    --pos-header: 0 0% 100%;
+    --pos-sidebar: 240 10% 95%;
+    --pos-quick-action: 172 80% 40%;
+    --pos-amount: 250 84% 54%;
+    --pos-offline: 40 96% 53%;
+    --pos-online: 172 80% 40%;
+
+    --sidebar-background: 240 10% 95%;
+    --sidebar-foreground: 240 10% 8%;
+    --sidebar-primary: 172 80% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 84% 90%;
+    --sidebar-accent-foreground: 250 84% 30%;
+    --sidebar-border: 240 10% 88%;
+    --sidebar-ring: 172 80% 40%;
+  }
+
+  .dark {
+    /* Premium Sleek Dark Theme (Glass base) */
+    --background: 240 15% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 250 84% 65%;
+    --primary-foreground: 240 10% 6%;
+
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 10% 70%;
+
+    --accent: 172 80% 50%;
+    --accent-foreground: 240 10% 6%;
+
+    --success: 160 84% 50%;
+    --success-foreground: 240 10% 6%;
+
+    --warning: 40 96% 60%;
+    --warning-foreground: 240 10% 6%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --pending: 25 95% 60%;
+    --pending-foreground: 240 10% 6%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 250 84% 65%;
+
+    --pos-header: 240 15% 6%;
+    --pos-sidebar: 240 15% 6%;
+    --pos-quick-action: 172 80% 50%;
+    --pos-amount: 172 80% 50%;
+    --pos-offline: 40 96% 60%;
+    --pos-online: 172 80% 50%;
+
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 250 84% 65%;
+    --sidebar-primary-foreground: 240 10% 6%;
+    --sidebar-accent: 250 84% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 15% 15%;
+    --sidebar-ring: 250 84% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Monospace for amounts and codes */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/50 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-lg;
+  }
+
+  .glass-header {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+    @apply border-b border-white/10 shadow-lg shadow-purple-900/30 z-50;
+  }
+
+  .glass-sidebar {
+    @apply bg-background/60 dark:bg-background/40 backdrop-blur-xl border-r border-white/20 dark:border-white/10 shadow-lg z-40;
+  }
+
+  /* Quick action buttons for POS */
+  .pos-quick-btn {
+    @apply flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold transition-all duration-150;
+    @apply bg-accent text-accent-foreground hover:brightness-110 active:scale-[0.98];
+    box-shadow: var(--shadow-md);
+  }
+
+  .pos-quick-btn-secondary {
+    @apply flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold transition-all duration-150;
+    @apply bg-secondary text-secondary-foreground hover:bg-muted active:scale-[0.98];
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Amount display */
+  .pos-amount {
+    @apply font-mono font-bold text-2xl;
+    color: hsl(var(--pos-amount));
+  }
+
+  .pos-amount-large {
+    @apply font-mono font-bold text-4xl tracking-tight;
+    color: hsl(var(--pos-amount));
+  }
+
+  /* Status badges */
+  .status-online {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: hsl(var(--pos-online) / 0.15);
+    color: hsl(var(--pos-online));
+  }
+
+  .status-offline {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: hsl(var(--pos-offline) / 0.15);
+    color: hsl(var(--pos-offline));
+  }
+
+  .status-pending {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+    background: hsl(var(--pending) / 0.15);
+    color: hsl(var(--pending));
+  }
+
+  /* Letter search grid */
+  .letter-grid {
+    @apply grid grid-cols-9 gap-1;
+  }
+
+  .letter-btn {
+    @apply flex items-center justify-center w-10 h-10 rounded-md text-sm font-semibold;
+    @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
+    @apply transition-colors duration-100 cursor-pointer;
+  }
+
+  .letter-btn.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Product card in search */
+  .product-card {
+    @apply p-3 rounded-lg border bg-card cursor-pointer transition-all duration-100;
+    @apply hover:border-primary hover:shadow-md;
+  }
+
+  .product-card.selected {
+    @apply border-primary bg-primary/5 shadow-md;
+  }
+
+  /* Bill item row */
+  .bill-item {
+    @apply flex items-center justify-between py-2 px-3 rounded-md;
+    @apply hover:bg-muted/50 transition-colors;
+  }
+
+  /* Keyboard shortcut hint */
+  .kbd {
+    @apply inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-mono rounded;
+    @apply bg-muted text-muted-foreground border;
+  }
+
+  /* Login card styles */
+  .login-card {
+    @apply p-8 rounded-2xl glass-panel transition-all duration-300;
+  }
+
+  /* Header bar */
+  .pos-header {
+    @apply h-14 px-4 flex items-center justify-between;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+    @apply border-b border-white/10 shadow-lg shadow-purple-900/30;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle shimmer overlay on header */
+  .pos-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Sidebar navigation */
+  .pos-sidebar {
+    @apply w-64 min-h-screen p-4 glass-sidebar;
+  }
+
+  .pos-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors;
+    @apply text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent;
+  }
+
+  .pos-nav-item.active {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  /* Print styles */
+  @media print {
+    @page {
+      margin: 0;
+      size: 80mm auto;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+
+    body {
+      background: white;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bill-print {
+      width: 80mm;
+      font-size: 11px;
+      padding: 4mm;
+      margin: 0 auto;
+    }
+
+    .print-page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .TamilFont {
+      font-family: 'Noto Sans Tamil', sans-serif;
+    }
+  }
+
+  /* Utility for Tamil font outside print if needed */
+  .TamilFont {
+    font-family: 'Noto Sans Tamil', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}

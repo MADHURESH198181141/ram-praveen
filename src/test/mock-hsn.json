@@ -1,0 +1,17 @@
+[
+  {
+    "hsnCode": "1006",
+    "description": "Rice",
+    "rate": 5
+  },
+  {
+    "hsnCode": "3304",
+    "description": "Beauty or make-up preparations",
+    "rate": 18
+  },
+  {
+    "hsnCode": "8471",
+    "description": "Automatic data processing machines",
+    "rate": 18
+  }
+]

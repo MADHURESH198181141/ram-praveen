@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# SQLite Database
+*.db
+*.sqlite
+retail_billing.db
+
+# Releases & Packages
+release/
+release.zip
+*.tsbuildinfo
+
+# Flutter / Dart (billing_desktop)
+billing_desktop/build/
+billing_desktop/.dart_tool/
+billing_desktop/.flutter-plugins
+billing_desktop/.flutter-plugins-dependencies
+billing_desktop/windows/flutter/ephemeral/
+billing_desktop/.metadata
