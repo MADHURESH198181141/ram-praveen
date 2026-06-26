@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import { ShieldCheck, User, Lock, AlertCircle, Clock } from 'lucide-react';
-
-// NOTE: Demo credentials removed. Do not hardcode credentials in UI.
-
-
+import { ShieldCheck, User, Lock, AlertCircle, Languages, Clock, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -215,8 +211,15 @@ export default function Login() {
             </form>
           </Tabs>
 
+          {/* Demo Credentials Hint */}
+          <div className="mt-6 p-4 bg-muted/50 rounded-lg text-sm">
+            <div className="font-medium mb-2">{t('login.demo_credentials')}</div>
+            <div className="space-y-1 text-muted-foreground">
+              <div><span className="font-medium">{t('login.admin')}:</span> admin / admin123</div>
+              <div><span className="font-medium">{t('login.employee')}:</span> EMP001 / emp123</div>
+            </div>
+          </div>
         </div>
-
 
         {/* Footer */}
         <div className="text-center mt-6 text-sm text-muted-foreground">
